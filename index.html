@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script  src="script.js" type="module"></script>
+    
+</head>
+<body id="body" class="body">
+
+    <h4 id="heading" class="heading">Welcome to 2048 Game!</h4>
+    <button class="button-30" id="button" onclick="myfunction()" role="button">Change Theme</button>
+    <div id="game-board" class="game-board"> </div>
+    <div id="snackbar">Game Over</div>
+
+
+<script>
+    function myfunction(){
+
+var element = document.getElementById("body");
+element.classList.toggle("dark-body");
+
+var element1 = document.getElementById("heading");
+element1.classList.toggle("dark-heading");
+
+var element2 = document.getElementById("game-board");
+element2.classList.toggle("dark-gameboard");
+
+var third = document.getElementsByClassName("cell");
+
+for(var i =0; i< third.length;i++){
+    const ele = third.item(i);
+    ele.classList.toggle("dark-cell");
+}
+
+
+}
+</script>
+    
+</body>
+</html>
