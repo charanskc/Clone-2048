@@ -32,11 +32,11 @@ function mobileInput(){
     document.getElementById("game-board").addEventListener("touchstart", e =>{
         startingX = e.touches[0].clientX;
         startingY = e.touches[0].clientY;
-    },{once:true});
+    });
     document.getElementById("game-board").addEventListener("touchmove", e =>{
         movingX = e.touches[0].clientX;
         movingY = e.touches[0].clientY;
-    },{once:true});
+    });
     document.getElementById("game-board").addEventListener("touchend", e =>{
         if(startingX+100 < movingX){
             moveRight()
@@ -63,7 +63,7 @@ function mobileInput(){
         }
         setupInput()
     
-    },{once:true});
+    });
 }
 
 
