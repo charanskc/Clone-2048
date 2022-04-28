@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clone-2048</title>
+    <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <script  src="script.js" type="module"></script>
     
 </head>
 <body id="body" class="body">
 
-    <h4 id="heading" class="heading">Welcome to 2048 Game!</h4>
+    <div class="main">
+        <h4 id="heading" class="heading">Welcome to 2048 Game!</h4>
+        <p id="para" class="para">Score : 0 </p>
+    </div>
     <button class="button-30" id="button" onclick="myfunction()" role="button">Change Theme</button>
     <div id="game-board" class="game-board"> </div>
     <div id="snackbar">Game Over</div>
@@ -28,6 +31,9 @@ element1.classList.toggle("dark-heading");
 
 var element2 = document.getElementById("game-board");
 element2.classList.toggle("dark-gameboard");
+
+var element3 = document.getElementById("para");
+element3.classList.toggle("dark-para");
 
 var third = document.getElementsByClassName("cell");
 

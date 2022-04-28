@@ -11,11 +11,63 @@ const grid = new Grid(gameBoard)
 grid.randomEmptyCell().tile = new Tile(gameBoard)
 grid.randomEmptyCell().tile = new Tile(gameBoard)
 
-setupInput()
+let details = navigator.userAgent;
+let regexp = /android|iphone|kindle|ipad/i;
+
+let isMobileDevice = regexp.test(details);
+
+if(isMobileDevice){
+    mobileInput()
+}else{
+    setupInput()
+}
 
 function setupInput(){
     window.addEventListener("keydown",handleInput,{once:true})
 }
+
+function mobileInput(){
+    var startingX, startingY, movingX, movingY;
+
+    document.getElementById("game-board").addEventListener("touchstart", e =>{
+        startingX = e.touches[0].clientX;
+        startingY = e.touches[0].clientY;
+    },{once:true});
+    document.getElementById("game-board").addEventListener("touchmove", e =>{
+        movingX = e.touches[0].clientX;
+        movingY = e.touches[0].clientY;
+    },{once:true});
+    document.getElementById("game-board").addEventListener("touchend", e =>{
+        if(startingX+100 < movingX){
+            moveRight()
+        }else if(startingX - 100 > movingX){
+            moveLeft()
+        }
+    
+        if(startingY+100 < movingY){
+            moveDown()
+        }else if(startingY - 100 > movingY){
+            moveUp()
+        }
+    
+        grid.cells.forEach(cell => cell.mergeTiles())
+    
+        const newTile = new Tile(gameBoard)
+        grid.randomEmptyCell().tile = newTile
+    
+        if(!canMoveUp() && !canMoveDown() && !canMoveLeft() && !canMoveRight()){
+            newTile.waitForTransition(true).then(() => {
+               myFunction()
+            })
+            return
+        }
+        setupInput()
+    
+    },{once:true});
+}
+
+
+
 
 function myFunction() {
     var x = document.getElementById("snackbar");

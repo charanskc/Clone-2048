@@ -23,6 +23,12 @@ export default class Tile{
         const backgroundLightness = 100 - power * 9
         this.#tileElement.style.setProperty("--background-lightness", `${backgroundLightness}%`)
         this.#tileElement.style.setProperty("--text-lightness", `${backgroundLightness <= 50 ? 90 : 10 }%`)
+        if(this.#tileElement.innerHTML >= 1000){
+            this.#tileElement.style.setProperty("--font-size", "30px")
+        }
+        if(this.#tileElement.innerHTML >= 10000){
+            this.#tileElement.style.setProperty("--font-size", "20px")
+        }
     }
 
     set x(value){
