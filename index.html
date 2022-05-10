@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Clone-2048</title>
     <link rel="stylesheet" href="style.css">
     <script  src="script.js" type="module"></script>
-    
+        
 </head>
 <body id="body" class="body">
 
@@ -15,7 +15,10 @@
         <h4 id="heading" class="heading">Welcome to 2048 Game!</h4>
         <p id="para" class="para"> </p>
     </div>
-    <button class="button-30" id="button" onclick="myfunction()" role="button">Change Theme</button>
+    <div>
+        <button class="button-30" id="button" onclick="myfunction()" role="button">Change Theme</button>
+        <button class="button-30" id="resetbutton" role="button">Reset</button>
+    </div>
     <div id="game-board" class="game-board"> </div>
     <div id="snackbar">Game Over</div>
 
@@ -23,27 +26,35 @@
 <script>
     function myfunction(){
 
-var element = document.getElementById("body");
-element.classList.toggle("dark-body");
+    var element = document.getElementById("body");
+    element.classList.toggle("dark-body");
 
-var element1 = document.getElementById("heading");
-element1.classList.toggle("dark-heading");
+    var element1 = document.getElementById("heading");
+    element1.classList.toggle("dark-heading");
 
-var element2 = document.getElementById("game-board");
-element2.classList.toggle("dark-gameboard");
+    var element2 = document.getElementById("game-board");
+    element2.classList.toggle("dark-gameboard");
 
-var element3 = document.getElementById("para");
-element3.classList.toggle("dark-para");
+    var element3 = document.getElementById("para");
+    element3.classList.toggle("dark-para");
 
-var third = document.getElementsByClassName("cell");
+    var third = document.getElementsByClassName("cell");
 
-for(var i =0; i< third.length;i++){
-    const ele = third.item(i);
-    ele.classList.toggle("dark-cell");
+    for(var i =0; i< third.length;i++){
+        const ele = third.item(i);
+        ele.classList.toggle("dark-cell");
+    }
+
 }
 
+const resetbutton = document.querySelector("#resetbutton")
 
+function reset(){
+    reload = location.reload();
 }
+
+resetbutton.addEventListener("click",reset,false);
+
 </script>
     
 </body>
